@@ -12,15 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_KERNEL_CONFIG := aosp_loire_suzu_defconfig
+TARGET_KERNEL_CONFIG := aosp_tone_dora_defconfig
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/sony/suzu/device.mk)
+$(call inherit-product, device/sony/dora/device.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_NAME := aosp_f5121
-PRODUCT_DEVICE := suzu
-PRODUCT_MODEL := Xperia X (AOSP)
+PRODUCT_NAME := aosp_f8131
+PRODUCT_DEVICE := dora
+PRODUCT_MODEL := Xperia X Performance (AOSP)
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony

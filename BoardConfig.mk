@@ -12,10 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include device/sony/loire/PlatformConfig.mk
+include device/sony/tone/PlatformConfig.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := F5121
+TARGET_BOOTLOADER_BOARD_NAME := F8131
 
-BOARD_KERNEL_CMDLINE += androidboot.hardware=suzu
+BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
 
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
+
+TW_BRIGHTNESS_PATH := /sys/class/leds/wled/brightness
+TW_MAX_BRIGHTNESS := 4095
+
+TW_THEME := portrait_hdpi

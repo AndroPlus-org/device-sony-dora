@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-add_lunch_combo aosp_f5121-userdebug
+add_lunch_combo aosp_f8131-userdebug

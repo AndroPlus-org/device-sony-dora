@@ -13,16 +13,16 @@
 # limitations under the License.
 
 DEVICE_PACKAGE_OVERLAYS += \
-    device/sony/suzu/overlay
+    device/sony/dora/overlay
 
 PRODUCT_COPY_FILES := \
-    device/sony/suzu/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/sony/suzu/rootdir/system/etc/BCM43455.hcd:system/etc/firmware/BCM43xx.hcd \
-    device/sony/suzu/rootdir/system/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
-    device/sony/suzu/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
-    device/sony/suzu/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    device/sony/suzu/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-    device/sony/suzu/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/sony/dora/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/sony/dora/rootdir/system/etc/BCM43455.hcd:system/etc/firmware/BCM43xx.hcd \
+    device/sony/dora/rootdir/system/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
+    device/sony/dora/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
+    device/sony/dora/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/sony/dora/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+    device/sony/dora/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Device Specific Permissions
 PRODUCT_COPY_FILES += \
@@ -34,21 +34,21 @@ PRODUCT_COPY_FILES += \
 
 # Device Init
 PRODUCT_PACKAGES += \
-    init.recovery.suzu \
-    init.suzu \
-    ueventd.suzu
+    init.recovery.qcom \
+    init.qcom \
+    ueventd.qcom
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.suzu
+    lights.qcom
 
 # Simple PowerHAL
 PRODUCT_PACKAGES += \
-    power.suzu
+    power.qcom
 
 # NFC config
 PRODUCT_PACKAGES += \
-    nfc_nci.suzu
+    nfc_nci.qcom
 
 PRODUCT_AAPT_CONFIG := large
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
@@ -56,8 +56,8 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.sf.lcd_density=480 \
-    ro.usb.pid_suffix=1E0
+    ro.usb.pid_suffix=1E1
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/sony/loire/platform.mk)
-$(call inherit-product, vendor/sony/loire-suzu/suzu-vendor.mk)
+$(call inherit-product, device/sony/tone/platform.mk)
+$(call inherit-product, vendor/sony/tone-dora/dora-vendor.mk)
