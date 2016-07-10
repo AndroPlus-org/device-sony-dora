@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2009, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds.  Do not translate. -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Hardware 'face' keys present on the device, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Assistant (search)
+            16 - App switch
+            32 - Camera
+            64 - Volume rocker
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareKeys">96</integer>
+
+    <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Assistant (search)
+            16 - App switch
+            32 - Camera
+            64 - Volume rocker
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareWakeKeys">96</integer>
+
+    <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
+         The N entries of this array define N  1 zones as follows:
+
+         Zone 0:        0 <= LUX < array[0]
+         Zone 1:        array[0] <= LUX < array[1]
+         ...
+         Zone N:        array[N - 1] <= LUX < array[N]
+         Zone N + 1     array[N] <= LUX < infinity
+
+         Must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLevels">
+		<item>1</item>
+		<item>8</item>
+		<item>24</item>
+		<item>64</item>
+		<item>128</item>
+		<item>170</item>
+		<item>220</item>
+		<item>256</item>
+		<item>384</item>
+		<item>512</item>
+		<item>768</item>
+		<item>1024</item>
+		<item>1536</item>
+		<item>2048</item>
+		<item>2560</item>
+		<item>3584</item>
+		<item>4095</item>
+    </integer-array>
+
+    <!-- Array of output values for LCD backlight corresponding to the LUX values
+		in the config_autoBrightnessLevels array.  This array should have size one greater
+		than the size of the config_autoBrightnessLevels array.
+		This must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+		<item>1</item>   <!-- 0-8 -->
+		<item>2</item>   <!-- 8-24 -->
+		<item>4</item>   <!-- 24-64 -->
+		<item>8</item>   <!-- 64-128 -->
+		<item>24</item>   <!-- 128-170 -->
+		<item>32</item>   <!-- 170-220 -->
+		<item>46</item>   <!-- 220-256 -->
+		<item>65</item>   <!-- 256-384 -->
+		<item>80</item>   <!-- 384-512 -->
+		<item>100</item>   <!-- 512-768 -->
+		<item>130</item>   <!-- 768-1024 -->
+		<item>150</item>   <!-- 1024-1536 -->
+		<item>170</item>   <!-- 1536-2048 -->
+		<item>190</item>   <!-- 2048-2560 -->
+		<item>220</item>   <!-- 2560-3584 -->
+		<item>254</item>   <!-- 3584-4094 -->
+		<item>255</item>   <!-- 4095+ -->
+    </integer-array>
+
+    <!-- Array of output values for button backlight corresponding to the LUX values
+		in the config_autoBrightnessLevels array.  This array should have size one greater
+		than the size of the config_autoBrightnessLevels array.
+		This must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessButtonBacklightValues" />
+ 
+    <!-- Minimum screen brightness setting allowed by the power manager.
+		The user is forbidden from setting the brightness below this level. -->
+    <integer name="config_screenBrightnessSettingMinimum">4</integer> <!-- 24 -->
+    
+	<!-- Maximum screen brightness allowed by the power manager.
+		The user is forbidden from setting the brightness above this level. -->
+	<integer name="config_screenBrightnessSettingMaximum">255</integer> <!-- 4095 -->
+
+	<!-- Default screen brightness setting.
+		Must be in the range specified by minimum and maximum. -->
+	<integer name="config_screenBrightnessSettingDefault">170</integer> <!-- 2048 -->
+
+    <!-- Screen brightness used to dim the screen when the user activity
+		timeout expires.  May be less than the minimum allowed brightness setting
+		that can be set by the user. -->
+    <integer name="config_screenBrightnessDim">4</integer> <!-- 24 -->
+
+	<!-- Screen brightness used to dim the screen while dozing in a very low power state.
+		May be less than the minimum allowed brightness setting
+		that can be set by the user. -->
+	<integer name="config_screenBrightnessDoze">1</integer> <!-- 8 -->
+
+    <!-- Minimum allowable screen brightness to use in a very dark room.
+         This value sets the floor for the darkest possible auto-brightness
+         adjustment.  It is expected to be somewhat less than the first entry in
+         config_autoBrightnessLcdBacklightValues so as to allow the user to have
+         some range of adjustment to dim the screen further than usual in very
+         dark rooms. The contents of the screen must still be clearly visible
+         in darkness (although they may not be visible in a bright room). -->
+    <integer name="config_screenBrightnessDark">4</integer> <!-- 24 -->
+
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
+
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up.
+         The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
+
+</resources>
